@@ -37,11 +37,7 @@ requirements:
     - qtdeclarative {{ version }}
     - zstd
     # X11 dependencies
-    - libgl  # [linux]
     - libgl-devel  # [linux]
-    - mesa-libgl-devel  # [linux]
-    - mesalib  # [linux]
-    - libegl  # [linux]
     - libegl-devel  # [linux]
   run_constrained:
     - qt-main >={{ version }},<7
