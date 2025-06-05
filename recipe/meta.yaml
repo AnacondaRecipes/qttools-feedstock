@@ -33,12 +33,9 @@ requirements:
     - perl
 
   host:
-    - qtbase {{ version }}
+    - qtbase-devel {{ version }}
     - qtdeclarative {{ version }}
-    - zstd
-    # X11 dependencies
-    - libgl-devel  # [linux]
-    - libegl-devel  # [linux]
+    - zstd {{ zstd }}
   run_constrained:
     - qt-main >={{ version }},<7
     - qt >={{ version }},<7
