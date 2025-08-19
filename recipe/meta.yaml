@@ -37,8 +37,8 @@ requirements:
     - qtdeclarative {{ version }}
     - zstd {{ zstd }}
     # Vulkan support
-    - libvulkan-headers {{ libvulkan }}  # [linux]
-    - libvulkan-loader {{ libvulkan }}   # [linux]
+    - libvulkan-headers {{ libvulkan }}  # [not osx]
+    - libvulkan-loader {{ libvulkan }}   # [not osx]
   run_constrained:
     - qt-main >={{ version }},<7
     - qt >={{ version }},<7
