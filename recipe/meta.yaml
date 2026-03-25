@@ -42,7 +42,7 @@ requirements:
 
 test:
   commands:
-    {% for bin in ["Linguist6", "Designer6", "pixeltool6", "Assistant6", "qdistancefieldgenerator6", "qtplugininfo6", "qdbus6", "qdbusviewer6", "qtdiag6"] %}
+    {% for bin in ["assistant6", "designer6", "lcheck6", "lconvert6", "linguist6", "lrelease-pro6", "lrelease6", "ltext2id6", "lupdate-pro6", "lupdate6", "pixeltool6", "qdbus6", "qdbusviewer6", "qdistancefieldgenerator6", "qtdiag6", "qtplugininfo6"] %}
     - test -e $PREFIX/bin/{{ bin }}                              # [osx]
     - test -e $PREFIX/bin/{{ bin|lower }}                        # [linux]
     - if not exist %PREFIX%\\Library\\bin\\{{ bin }}.exe exit 1  # [win]
