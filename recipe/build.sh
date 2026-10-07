@@ -27,6 +27,7 @@ cmake --log-level STATUS -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS
   -DINSTALL_INCLUDEDIR=include/qt6 \
   -DINSTALL_MKSPECSDIR=lib/qt6/mkspecs \
   -DINSTALL_EXAMPLESDIR=share/doc/qt6/examples \
+  -DQT_UNITY_BUILD=OFF \
   -DQT_FEATURE_assistant=ON \
   -DQT_FEATURE_designer=ON \
   -DQT_FEATURE_distancefieldgenerator=ON \
@@ -35,13 +36,7 @@ cmake --log-level STATUS -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS
   -DQT_FEATURE_qdbus=ON \
   -DQT_FEATURE_qdoc=OFF \
   -DQT_FEATURE_qtdiag=ON \
-  -DCMAKE_UNITY_BUILD=OFF \
-  -DQT_UNITY_BUILD=OFF \
   -DQT_FEATURE_qtplugininfo=ON
-
-grep -i "unity" build/CMakeCache.txt || true
-grep -rn -i "unity" "${PREFIX}"/lib/cmake/Qt6BuildInternals/ "${PREFIX}"/lib/cmake/Qt6/ --include=*.cmake | head -50 || true
-grep -rn -i "unity" "${SRC_DIR}/${PKG_NAME}/src/assistant/qlitehtml/" --include=CMakeLists.txt --include=*.cmake || true
 
 cmake --build build --target install
 
