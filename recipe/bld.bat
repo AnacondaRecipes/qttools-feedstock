@@ -15,6 +15,7 @@ cmake --log-level STATUS -S"%SRC_DIR%/%PKG_NAME%" -B"%SRC_DIR%\build" -GNinja ^
     -DINSTALL_MKSPECSDIR=lib/qt6/mkspecs ^
     -DINSTALL_EXAMPLESDIR=share/doc/qt6/examples ^
     -DINSTALL_DATADIR=share/qt6 ^
+    -DQT_UNITY_BUILD=OFF ^
     -DQT_FEATURE_assistant=ON ^
     -DQT_FEATURE_designer=ON ^
     -DQT_FEATURE_distancefieldgenerator=ON ^

@@ -27,6 +27,7 @@ cmake --log-level STATUS -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS
   -DINSTALL_INCLUDEDIR=include/qt6 \
   -DINSTALL_MKSPECSDIR=lib/qt6/mkspecs \
   -DINSTALL_EXAMPLESDIR=share/doc/qt6/examples \
+  -DQT_UNITY_BUILD=OFF \
   -DQT_FEATURE_assistant=ON \
   -DQT_FEATURE_designer=ON \
   -DQT_FEATURE_distancefieldgenerator=ON \
@@ -36,6 +37,7 @@ cmake --log-level STATUS -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS
   -DQT_FEATURE_qdoc=OFF \
   -DQT_FEATURE_qtdiag=ON \
   -DQT_FEATURE_qtplugininfo=ON
+
 cmake --build build --target install
 
 pushd "${PREFIX}"
