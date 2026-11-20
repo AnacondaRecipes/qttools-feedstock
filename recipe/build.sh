@@ -36,7 +36,10 @@ cmake --log-level STATUS -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS
   -DQT_FEATURE_qdbus=ON \
   -DQT_FEATURE_qdoc=OFF \
   -DQT_FEATURE_qtdiag=ON \
-  -DQT_FEATURE_qtplugininfo=ON
+  -DQT_FEATURE_qtplugininfo=ON \
+  -DQT_FEATURE_uic=ON \
+  -DQT_FEATURE_moc=ON \
+  -DQT_FEATURE_rcc=ON
 
 cmake --build build --target install
 

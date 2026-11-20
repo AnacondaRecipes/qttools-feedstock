@@ -24,7 +24,10 @@ cmake --log-level STATUS -S"%SRC_DIR%/%PKG_NAME%" -B"%SRC_DIR%\build" -GNinja ^
     -DQT_FEATURE_qdbus=ON ^
     -DQT_FEATURE_qdoc=OFF ^
     -DQT_FEATURE_qtdiag=ON ^
-    -DQT_FEATURE_qtplugininfo=ON
+    -DQT_FEATURE_qtplugininfo=ON ^
+    -DQT_FEATURE_uic=ON ^
+    -DQT_FEATURE_moc=ON ^
+    -DQT_FEATURE_rcc=ON
 if errorlevel 1 exit 1
 
 cmake --build build --target install
@@ -67,6 +70,12 @@ copy %LIBRARY_PREFIX%\lib\qt6\bin\qtdiag6.exe %LIBRARY_PREFIX%\bin\qtdiag6.exe
 if errorlevel 1 exit 1
 copy %LIBRARY_PREFIX%\lib\qt6\bin\qtplugininfo.exe %LIBRARY_PREFIX%\bin\qtplugininfo6.exe
 if errorlevel 1 exit 1
+copy %LIBRARY_PREFIX%\lib\qt6\uic.exe %LIBRARY_PREFIX%\bin\uic6.exe
+if errorlevel 1 exit 1
+copy %LIBRARY_PREFIX%\lib\qt6\moc.exe %LIBRARY_PREFIX%\bin\moc6.exe
+if errorlevel 1 exit 1
+copy %LIBRARY_PREFIX%\lib\qt6\rcc.exe %LIBRARY_PREFIX%\bin\rcc6.exe
+if errorlevel 1 exit 1
 
 @REM remove symbolic links
 del %LIBRARY_PREFIX%\bin\assistant6
@@ -100,4 +109,10 @@ if errorlevel 1 exit 1
 del %LIBRARY_PREFIX%\bin\qtdiag6
 if errorlevel 1 exit 1
 del %LIBRARY_PREFIX%\bin\qtplugininfo6
+if errorlevel 1 exit 1
+del %LIBRARY_PREFIX%\bin\uic6
+if errorlevel 1 exit 1
+del %LIBRARY_PREFIX%\bin\moc6
+if errorlevel 1 exit 1
+del %LIBRARY_PREFIX%\bin\rcc6
 if errorlevel 1 exit 1

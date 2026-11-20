@@ -11,7 +11,7 @@ source:
     folder: {{ name }}
 
 build:
-  number: 0
+  number: 1
   # https://doc.qt.io/qt-6/qt-releases.html#binary-compatibility
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
@@ -47,6 +47,14 @@ test:
     - test -e $PREFIX/bin/{{ bin|lower }}                        # [linux]
     - if not exist %PREFIX%\\Library\\bin\\{{ bin }}.exe exit 1  # [win]
     {% endfor %}
+    - test -f $PREFIX/lib/qt6/uic                                  # [unix]
+    - test -f $PREFIX/lib/qt6/moc                                  # [unix]
+    - test -f $PREFIX/lib/qt6/rcc                                  # [unix]
+    - uic --version | grep 6.12                                    # [unix]
+    - if not exist %PREFIX%\\Library\\lib\\qt6\\uic.exe exit 1      # [win]
+    - if not exist %PREFIX%\\Library\\lib\\qt6\\moc.exe exit 1      # [win]
+    - if not exist %PREFIX%\\Library\\lib\\qt6\\rcc.exe exit 1      # [win]
+    - uic --version | findstr 6.12                                 # [win]
 
 about:
   home: https://www.qt.io
